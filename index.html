@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html class="h-100">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="index.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Crimson+Text&family=Rubik&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
+    <nav class="navbar navbar-expand-lg bg-light navbar-light fixed-top">
+      <div class="container-lg">
+        <a class="navbar-brand" href="#"></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#cq-navbar"
+          aria-controls="cq-navbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="cq-navbar">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#couple">Our Couple</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#story">Our Story</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#event">Wedding Event</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#cheer">Cheers to Our Love</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="home" class="cq-fullscreen container-fluid">
+      <div id="info-wrapper">
+        <div id="info-content">
+          <h1 id="banner-title">Minh Chánh <br />& Quỳnh Anh</h1>
+          <h2 id="date">16 Sep 2023</h2>
+          <span>SAVE THE DATE</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="couple" class="container-lg">
+      <span class="section-title">Our Couple</span>
+      <div class="row couple-wrapper">
+        <div id="groom" class="col-lg-6 couple-content">
+          <div class="couple-avatar"></div>
+          <div class="couple-flexing pt-5">
+            <h3 class="couple-title">THE GROOM</h3>
+            <h3 class="couple-name">Trần Minh Chánh</h3>
+          </div>
+        </div>
+        <div id="bride" class="col-lg-6 couple-content">
+          <div class="couple-avatar"></div>
+          <div class="couple-flexing pt-5">
+            <h3 class="couple-title">THE BRIDE</h3>
+            <h3 class="couple-name">Phạm Hồng Quỳnh Anh</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="event" class="container-lg">
+      <span class="section-title">Wedding Event</span>
+
+      <div id="invitation" class="row">
+        <div id="restaurant" class="col-lg-6"></div>
+        <div id="restaurant-info" class="col-lg-6">
+          <p>We Are Most Welcome You In Our Wedding Party</p>
+          <ul>
+            <li>Saturday, 16 Sep, 2023</li>
+            <li>at 17:30</li>
+            <li>TRÀNG AN PALACE</li>
+            <li>Sảnh Diamond, Toà nhà Hei</li>
+            <li>Số 1 Nguỵ Như Kon Tum, Nhân Chính, Thanh Xuân, Hà Nội</li>
+          </ul>
+          <a
+            href="https://goo.gl/maps/mnzRzjveavy9XwMW9"
+            target="_blank"
+            class="btn"
+            ><i class="bi bi-map"></i> Google Map</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div id="cheer" class="container-fluid">
+      <span class="section-title">Cheers to Our Love</span>
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSex9CkfTMomf1g5Lcn1gFuCIB2fv9UId4DXgdCzgjiP7KEzmA/viewform?embedded=true"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+      ></iframe>
+    </div>
+  </body>
+</html>

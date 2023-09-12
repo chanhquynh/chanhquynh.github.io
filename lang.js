@@ -5,6 +5,7 @@ var langTexts = {
       home: "Trang Chủ",
       couple: "Chúng Tôi",
       event: "Tiệc Cưới",
+      event_baohy: "Lễ Cưới",
       cheer: "Chung Vui",
       moments: "Khoảnh Khắc",
     },
@@ -14,6 +15,9 @@ var langTexts = {
     },
     event: {
       descriptions: "Tiệc Cưới Của Chúng Tôi Sẽ Tổ Chức Tại",
+    },
+    event_baohy: {
+      descriptions: "Lễ Cưới Của Chúng Tôi Sẽ Tổ Chức Tại",
     },
     cheer: {
       invitation:
@@ -49,6 +53,7 @@ var langTexts = {
       home: "Home",
       couple: "Our Couple",
       event: "Wedding Event",
+      event_baohy: "Wedding Ceremony",
       cheer: "Cheers to Our Love",
       moments: "Our Selected Moments",
     },
@@ -58,6 +63,9 @@ var langTexts = {
     },
     event: {
       descriptions: "Our Wedding Party Will Be Held At",
+    },
+    event_baohy: {
+      descriptions: "Our Wedding Ceremony Will Be Held In",
     },
     cheer: {
       invitation:

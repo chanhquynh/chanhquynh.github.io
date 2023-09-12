@@ -75,7 +75,12 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#event"
-                >{{langTexts[selectedLang.text].sections.event_baohy}}</a
+                >{{langTexts[selectedLang.text].sections.event}}</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#cheer"
+                >{{langTexts[selectedLang.text].sections.cheer}}</a
               >
             </li>
             <li class="nav-item">
@@ -93,6 +98,7 @@
         <div id="info-content">
           <h1 id="banner-title">Minh Chánh<br />& Quỳnh Anh</h1>
           <h2 id="date">{{langTexts[selectedLang.text].date}}</h2>
+          <span>SAVE THE DATE</span>
         </div>
       </div>
     </div>
@@ -127,7 +133,7 @@
       <div class="event-wrapper container-fluid cq-section">
         <div class="container-xl">
           <span class="section-title"
-            >{{langTexts[selectedLang.text].sections.event_baohy}}</span
+            >{{langTexts[selectedLang.text].sections.event}}</span
           >
 
           <div id="invitation" class="row">
@@ -137,11 +143,23 @@
               class="col-lg-6 mt-lg-0 mt-5 ps-0 ps-lg-5"
             >
               <p class="text-center text-md-start">
-                {{langTexts[selectedLang.text].event_baohy.descriptions}}
+                {{langTexts[selectedLang.text].event.descriptions}}
               </p>
-
+              <!-- <ul>                
+                <li>Saturday, 16 Sep, 2023</li>
+                <li>at 17:30</li>
+                <li>TRÀNG AN PALACE</li>
+                <li>Sảnh Diamond, Toà nhà Hei</li>
+                <li>Số 1 Nguỵ Như Kon Tum, Nhân Chính, Thanh Xuân, Hà Nội</li>
+              </ul> -->
+              <!-- <span class="text-center text-lg-start">
+                You have always been the perfect guardian for us. Your presence
+                will more than expected during this holy occasion of our lives.
+                Bless our holy union with presence so that our journey may turn
+                out nothing but bliss…
+              </span> -->
               <h4 id="restaurant-name" class="text-center text-md-start">
-                HÀ NỘI
+                TRÀNG AN PALACE
               </h4>
               <div class="row">
                 <div class="col-md-4">
@@ -150,18 +168,43 @@
                       <i class="bi bi-calendar2-heart"></i>
                       {{langTexts[selectedLang.text].date}}
                     </li>
+                    <li><i class="bi bi-clock"></i> 17h30</li>
                   </ul>
                 </div>
                 <div class="col-md-8">
                   <ul class="p-0">
-                    <li><i class="bi bi-clock"></i> 17h30</li>
+                    <!-- <li></li> -->
+                    <li>
+                      <i class="bi bi-geo"></i> Sảnh Diamond, Toà nhà Hei, Số 1
+                      Nguỵ Như Kon Tum, Thanh Xuân, Hà Nội
+                    </li>
                   </ul>
                 </div>
               </div>
+              <a
+                href="https://goo.gl/maps/mnzRzjveavy9XwMW9"
+                target="_blank"
+                class="btn"
+                ><i class="bi bi-map"></i> Google Map</a
+              >
             </div>
           </div>
         </div>
       </div>
+    </div>
+
+    <div id="cheer" class="container-md cq-section">
+      <span class="section-title"
+        >{{langTexts[selectedLang.text].sections.cheer}}</span
+      >
+      <p>{{langTexts[selectedLang.text].cheer.invitation}}</p>
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSex9CkfTMomf1g5Lcn1gFuCIB2fv9UId4DXgdCzgjiP7KEzmA/viewform?embedded=true"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        onload="resizeIframe(this);"
+      ></iframe>
     </div>
 
     <div id="moments" class="container-xl cq-section">

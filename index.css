@@ -7,8 +7,19 @@
   min-height: 100vh;
 }
 
+.cq-section {
+  padding-bottom: 3em;
+}
+
+nav .nav-item {
+  padding-left: 8px;
+}
+nav .nav-item:last-child {
+  padding-left: 0;
+}
+
 .section-title {
-  font-family: Indulge;
+  font-family: "Crimson Text";
   font-size: 2.8em;
   width: 100%;
   display: block;
@@ -56,12 +67,12 @@
   padding-bottom: 1em;
 }
 #home #date {
-  font-family: "Crimson Text", serif;
+  font-family: "Quicksand", serif;
   color: rgb(224, 38, 75);
   font-size: 1.6em;
 }
 #home span {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Quicksand", serif;
   color: rgb(47, 57, 79);
   font-size: 1.8em;
 }
@@ -70,7 +81,7 @@
   text-align: center;
 }
 #couple .couple-title {
-  font-family: "Rubik";
+  font-family: "Quicksand";
   margin-bottom: 1.5em;
 }
 #couple .couple-name {
@@ -90,8 +101,15 @@
   background-image: url(img/ava-bride.png);
 }
 
+#event {
+  background-image: url(img/couple-bg.jpg);
+  background-size: cover;
+  padding: 0;
+}
+#event .event-wrapper {
+  background-color: rgba(255, 255, 255, 0.9);
+}
 #event #invitation {
-  text-align: center;
   margin: 0 auto;
 }
 #event #invitation #restaurant {
@@ -101,48 +119,59 @@
   background-size: cover;
 }
 #event #restaurant-info {
-  font-family: "Crimson Text";
-  font-size: 1.4em;
+  font-family: "Quicksand";
+  font-size: 1.25em;
   color: rgb(47, 57, 79);
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 #event #restaurant-info p {
-  font-size: 1.7em;
-  /* color: black; */
+  font-size: 1.5em;
+  font-family: "Quicksand";
+}
+#event #restaurant-name {
+  font-size: 1.9em;
+  font-weight: 600;
+  padding-top: 0.5em;
+  padding-bottom: 1em;
+  font-family: "Quicksand";
+  color: crimson;
 }
 #event #invitation ul {
   list-style: none;
-  padding: 0 32px 0 32px;
+  /* padding: 0 32px 0 32px; */
 }
 #event #invitation ul li {
-  padding: 12px;
-  border-bottom: 1px solid rgba(47, 57, 79, 0.6);
+  padding: 0;
+  /* border-bottom: 1px solid rgba(47, 57, 79, 0.6); */
 }
-#event #invitation ul li:last-child {
-  border-bottom: none;
+#event #invitation ul li i {
+  padding-right: 4px;
 }
 #event #restaurant-info a.btn {
   display: block;
   font-family: "Rubik";
   font-weight: 500;
   width: fit-content;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   background: rgb(47, 57, 79, 1);
   color: white;
 }
 #event #restaurant-info a.btn:hover {
   background: rgb(47, 57, 79, 0.8);
 }
-
 #cheer iframe {
   display: block;
   margin: 0 auto;
   width: 100%;
   height: 840px;
 }
-
+#cheer p {
+  font-family: "Quicksand";
+  font-size: 1.5em;
+  text-align: justify;
+}
 @media (min-width: 768px) {
   #home #info-wrapper {
     background-color: rgba(255, 255, 255, 0.6);
@@ -158,18 +187,15 @@
   #home span {
     font-size: 3.5em;
   }
-
   #cheer iframe {
     height: 720px;
   }
 }
-
 @media (min-width: 992px) {
   nav {
     height: 80px;
-    /* background: #fff; */
+    font-size: 1.2em;
   }
-
   #home #info-wrapper {
     bottom: 0;
   }
@@ -180,13 +206,13 @@
     height: 100%;
   }
   #home #banner-title {
-    font-size: 5em;
+    font-size: 5.5em;
     line-height: 1.5em;
   }
   #home #date {
     font-size: 2.8em;
   }
   #home span {
-    font-size: 3.5em;
+    font-size: 3.2em;
   }
 }

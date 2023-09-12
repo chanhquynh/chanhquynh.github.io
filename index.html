@@ -4,6 +4,7 @@
     <title>Minh Chánh & Quỳnh Anh</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="img/logo.png" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -39,13 +40,16 @@
         class="form-select"
         aria-label="Language Selection"
         ng-model="selectedLang"
-        ng-options="l as l.text for l in lang"></select>
-      </select>
+        ng-options="l as l.text for l in lang"
+      ></select>
     </div>
 
     <nav class="navbar navbar-expand-lg bg-light navbar-light fixed-top">
       <div class="container-lg">
-        <a class="navbar-brand" href="#"></a>
+        <a class="navbar-brand" href="#home"
+          ><img src="img/logo.png" alt="" height="36px"
+        /></a>
+        <span class="nav-header-mobile d-lg-none">Minh Chánh & Quỳnh Anh</span>
         <button
           class="navbar-toggler"
           type="button"
@@ -60,19 +64,29 @@
         <div class="collapse navbar-collapse" id="cq-navbar">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="#home">{{langTexts[selectedLang.text].sections.home}}</a>
+              <a class="nav-link" href="#home"
+                >{{langTexts[selectedLang.text].sections.home}}</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#couple">{{langTexts[selectedLang.text].sections.couple}}</a>
+              <a class="nav-link" href="#couple"
+                >{{langTexts[selectedLang.text].sections.couple}}</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#event">{{langTexts[selectedLang.text].sections.event}}</a>
+              <a class="nav-link" href="#event"
+                >{{langTexts[selectedLang.text].sections.event}}</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#cheer">{{langTexts[selectedLang.text].sections.cheer}}</a>
+              <a class="nav-link" href="#cheer"
+                >{{langTexts[selectedLang.text].sections.cheer}}</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#moments">{{langTexts[selectedLang.text].sections.moments}}</a>
+              <a class="nav-link" href="#moments"
+                >{{langTexts[selectedLang.text].sections.moments}}</a
+              >
             </li>
           </ul>
         </div>
@@ -90,19 +104,25 @@
     </div>
 
     <div id="couple" class="container-lg cq-section">
-      <span class="section-title">{{langTexts[selectedLang.text].sections.couple}}</span>
+      <span class="section-title"
+        >{{langTexts[selectedLang.text].sections.couple}}</span
+      >
       <div class="row couple-wrapper">
         <div id="groom" class="col-lg-6 couple-content">
           <div class="couple-avatar"></div>
           <div class="couple-flexing pt-5">
-            <h3 class="couple-title">{{langTexts[selectedLang.text].couple.groom}}</h3>
+            <h3 class="couple-title">
+              {{langTexts[selectedLang.text].couple.groom}}
+            </h3>
             <h3 class="couple-name">Trần Minh Chánh</h3>
           </div>
         </div>
         <div id="bride" class="col-lg-6 couple-content mt-lg-0 mt-5">
           <div class="couple-avatar"></div>
           <div class="couple-flexing pt-5">
-            <h3 class="couple-title">{{langTexts[selectedLang.text].couple.bride}}</h3>
+            <h3 class="couple-title">
+              {{langTexts[selectedLang.text].couple.bride}}
+            </h3>
             <h3 class="couple-name">Phạm Hồng Quỳnh Anh</h3>
           </div>
         </div>
@@ -112,7 +132,9 @@
     <div id="event" class="container-fluid">
       <div class="event-wrapper container-fluid cq-section">
         <div class="container-xl">
-          <span class="section-title">{{langTexts[selectedLang.text].sections.event}}</span>
+          <span class="section-title"
+            >{{langTexts[selectedLang.text].sections.event}}</span
+          >
 
           <div id="invitation" class="row">
             <div id="restaurant" class="col-lg-6"></div>
@@ -121,7 +143,6 @@
               class="col-lg-6 mt-lg-0 mt-5 ps-0 ps-lg-5"
             >
               <p class="text-center text-md-start">
-
                 {{langTexts[selectedLang.text].event.descriptions}}
               </p>
               <!-- <ul>                
@@ -143,7 +164,10 @@
               <div class="row">
                 <div class="col-md-4">
                   <ul class="p-0">
-                    <li><i class="bi bi-calendar2-heart"></i> {{langTexts[selectedLang.text].date}}</li>
+                    <li>
+                      <i class="bi bi-calendar2-heart"></i>
+                      {{langTexts[selectedLang.text].date}}
+                    </li>
                     <li><i class="bi bi-clock"></i> 17h30</li>
                   </ul>
                 </div>
@@ -170,10 +194,10 @@
     </div>
 
     <div id="cheer" class="container-md cq-section">
-      <span class="section-title">{{langTexts[selectedLang.text].sections.cheer}}</span>
-      <p>
-        {{langTexts[selectedLang.text].cheer.invitation}}
-      </p>
+      <span class="section-title"
+        >{{langTexts[selectedLang.text].sections.cheer}}</span
+      >
+      <p>{{langTexts[selectedLang.text].cheer.invitation}}</p>
       <iframe
         src="https://docs.google.com/forms/d/e/1FAIpQLSex9CkfTMomf1g5Lcn1gFuCIB2fv9UId4DXgdCzgjiP7KEzmA/viewform?embedded=true"
         frameborder="0"
@@ -181,6 +205,162 @@
         marginwidth="0"
         onload="resizeIframe(this);"
       ></iframe>
+    </div>
+
+    <div id="moments" class="container-xl cq-section">
+      <span class="section-title"
+        >{{langTexts[selectedLang.text].sections.moments}}</span
+      >
+      <div
+        id="carouselExampleCaptions"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-inner h-100">
+          <div
+            class="carousel-item active"
+            style="background-image: url(img/carousel/first-met.jpg)"
+          >
+            <div class="carousel-caption">
+              <h5>{{langTexts[selectedLang.text].moments.captions[0].text}}</h5>
+              <p>{{langTexts[selectedLang.text].moments.captions[0].des}}</p>
+            </div>
+          </div>
+          <div
+            class="carousel-item"
+            style="background-image: url(img/carousel/first-date.jpg)"
+          >
+            <div class="carousel-caption">
+              <h5>{{langTexts[selectedLang.text].moments.captions[1].text}}</h5>
+              <p>{{langTexts[selectedLang.text].moments.captions[1].des}}</p>
+            </div>
+          </div>
+          <div
+            class="carousel-item"
+            style="background-image: url(img/carousel/cau-tu.jpg)"
+          >
+            <div class="carousel-caption">
+              <h5>{{langTexts[selectedLang.text].moments.captions[2].text}}</h5>
+              <p>{{langTexts[selectedLang.text].moments.captions[2].des}}</p>
+            </div>
+          </div>
+          <div
+            class="carousel-item"
+            style="background-image: url(img/carousel/san-may.jpg)"
+          >
+            <div class="carousel-caption">
+              <h5>{{langTexts[selectedLang.text].moments.captions[3].text}}</h5>
+              <p>{{langTexts[selectedLang.text].moments.captions[3].des}}</p>
+            </div>
+          </div>
+          <div
+            class="carousel-item"
+            style="background-image: url(img/carousel/okinawa.jpg)"
+          >
+            <div class="carousel-caption">
+              <h5>{{langTexts[selectedLang.text].moments.captions[4].text}}</h5>
+              <p>{{langTexts[selectedLang.text].moments.captions[4].des}}</p>
+            </div>
+          </div>
+          <div
+            class="carousel-item"
+            style="background-image: url(img/carousel/tot-nghiep.jpg)"
+          >
+            <div class="carousel-caption">
+              <h5>{{langTexts[selectedLang.text].moments.captions[5].text}}</h5>
+              <p>{{langTexts[selectedLang.text].moments.captions[5].des}}</p>
+            </div>
+          </div>
+          <div
+            class="carousel-item"
+            style="background-image: url(img/carousel/yeu-xa.jpg)"
+          >
+            <div class="carousel-caption">
+              <h5>{{langTexts[selectedLang.text].moments.captions[6].text}}</h5>
+              <p>{{langTexts[selectedLang.text].moments.captions[6].des}}</p>
+            </div>
+          </div>
+          <div
+            class="carousel-item"
+            style="background-image: url(img/carousel/bai-dinh.jpg)"
+          >
+            <div class="carousel-caption">
+              <h5>{{langTexts[selectedLang.text].moments.captions[7].text}}</h5>
+              <p>{{langTexts[selectedLang.text].moments.captions[7].des}}</p>
+            </div>
+          </div>
+          <div
+            class="carousel-item"
+            style="background-image: url(img/carousel/hikone.jpg)"
+          >
+            <div class="carousel-caption">
+              <h5>{{langTexts[selectedLang.text].moments.captions[8].text}}</h5>
+              <p>{{langTexts[selectedLang.text].moments.captions[8].des}}</p>
+            </div>
+          </div>
+          <div
+            class="carousel-item"
+            style="background-image: url(img/carousel/long-bien.jpg)"
+          >
+            <div class="carousel-caption">
+              <h5>{{langTexts[selectedLang.text].moments.captions[9].text}}</h5>
+              <p>{{langTexts[selectedLang.text].moments.captions[9].des}}</p>
+            </div>
+          </div>
+          <div
+            class="carousel-item"
+            style="background-image: url(img/carousel/saigon.jpg)"
+          >
+            <div class="carousel-caption">
+              <h5>
+                {{langTexts[selectedLang.text].moments.captions[10].text}}
+              </h5>
+              <p>{{langTexts[selectedLang.text].moments.captions[10].des}}</p>
+            </div>
+          </div>
+          <div
+            class="carousel-item"
+            style="background-image: url(img/carousel/cau-hon.jpg)"
+          >
+            <div class="carousel-caption">
+              <h5>
+                {{langTexts[selectedLang.text].moments.captions[11].text}}
+              </h5>
+              <p>{{langTexts[selectedLang.text].moments.captions[11].des}}</p>
+            </div>
+          </div>
+          <div
+            class="carousel-item"
+            style="background-image: url(img/carousel/us.jpg)"
+          >
+            <div class="carousel-caption">
+              <h5>
+                {{langTexts[selectedLang.text].moments.captions[12].text}}
+              </h5>
+              <p>{{langTexts[selectedLang.text].moments.captions[12].des}}</p>
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
     </div>
   </body>
 </html>

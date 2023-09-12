@@ -19,10 +19,15 @@
 }
 
 nav .nav-item {
-  padding-left: 8px;
+  padding-right: 8px;
 }
 nav .nav-item:last-child {
-  padding-left: 0;
+  padding-right: 0;
+}
+nav .nav-header-mobile {
+  font-family: Indulge;
+  margin-top: 2px;
+  font-size: 1.2em;
 }
 
 .section-title {
@@ -36,7 +41,7 @@ nav .nav-item:last-child {
 }
 
 #home {
-  background-image: url("/img/top_banner_2.jpg");
+  background-image: url("img/top_banner_2_web.jpg");
   background-size: cover;
   background-position-x: 20%;
   position: relative;
@@ -102,10 +107,10 @@ nav .nav-item:last-child {
   background-position: center;
 }
 #couple #groom .couple-avatar {
-  background-image: url(img/ava-broom.png);
+  background-image: url(img/groom.jpg);
 }
 #couple #bride .couple-avatar {
-  background-image: url(img/ava-bride.png);
+  background-image: url(img/bride.jpg);
 }
 
 #event {
@@ -179,6 +184,34 @@ nav .nav-item:last-child {
   font-size: 1.5em;
   text-align: justify;
 }
+#moments #carouselExampleCaptions {
+  height: 70vh;
+}
+#moments .carousel-caption {
+  font-family: "Quicksand";
+  padding-left: 24px;
+  padding-right: 24px;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+#moments .carousel-caption h5 {
+  font-weight: 600;
+  font-size: 1.1em;
+}
+#moments .carousel-caption p {
+  font-weight: 500;
+  font-size: 1em;
+}
+#moments .carousel-item {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+}
+#moments img {
+  display: block;
+  height: 100%;
+  margin: 0 auto;
+}
 @media (min-width: 768px) {
   #language {
     right: 50px;
@@ -200,6 +233,12 @@ nav .nav-item:last-child {
   }
   #cheer iframe {
     height: 720px;
+  }
+  #moments .carousel-caption h5 {
+    font-size: 1.5em;
+  }
+  #moments .carousel-caption p {
+    font-size: 1.3em;
   }
 }
 @media (min-width: 992px) {

@@ -11,6 +11,13 @@
   padding-bottom: 3em;
 }
 
+#language {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9;
+}
+
 nav .nav-item {
   padding-left: 8px;
 }
@@ -173,6 +180,10 @@ nav .nav-item:last-child {
   text-align: justify;
 }
 @media (min-width: 768px) {
+  #language {
+    right: 50px;
+    bottom: 50px;
+  }
   #home #info-wrapper {
     background-color: rgba(255, 255, 255, 0.6);
     box-shadow: 0 0 20em 20em rgba(255, 255, 255, 0.6);

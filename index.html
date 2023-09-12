@@ -21,10 +21,28 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Quicksand&family=Crimson+Text&family=Rubik&display=swap"
       rel="stylesheet"
     />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <script src="lang.js"></script>
     <script src="index.js"></script>
   </head>
 
-  <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
+  <body
+    data-bs-spy="scroll"
+    data-bs-target=".navbar"
+    data-bs-offset="50"
+    ng-app="cqWed"
+    ng-controller="cqCtrl"
+  >
+    <div id="language">
+      <select
+        class="form-select"
+        aria-label="Language Selection"
+        ng-model="selectedLang"
+        ng-options="l as l.text for l in lang"></select>
+      </select>
+    </div>
+
     <nav class="navbar navbar-expand-lg bg-light navbar-light fixed-top">
       <div class="container-lg">
         <a class="navbar-brand" href="#"></a>
@@ -42,19 +60,19 @@
         <div class="collapse navbar-collapse" id="cq-navbar">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="#home">Home</a>
+              <a class="nav-link" href="#home">{{langTexts[selectedLang.text].sections.home}}</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#couple">Our Couple</a>
+              <a class="nav-link" href="#couple">{{langTexts[selectedLang.text].sections.couple}}</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#event">Wedding Event</a>
+              <a class="nav-link" href="#event">{{langTexts[selectedLang.text].sections.event}}</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#cheer">Cheers to Our Love</a>
+              <a class="nav-link" href="#cheer">{{langTexts[selectedLang.text].sections.cheer}}</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#moments">Our Selected Moments</a>
+              <a class="nav-link" href="#moments">{{langTexts[selectedLang.text].sections.moments}}</a>
             </li>
           </ul>
         </div>
@@ -65,26 +83,26 @@
       <div id="info-wrapper">
         <div id="info-content">
           <h1 id="banner-title">Minh Chánh<br />& Quỳnh Anh</h1>
-          <h2 id="date">16 Sep 2023</h2>
+          <h2 id="date">{{langTexts[selectedLang.text].date}}</h2>
           <span>SAVE THE DATE</span>
         </div>
       </div>
     </div>
 
     <div id="couple" class="container-lg cq-section">
-      <span class="section-title">Our Couple</span>
+      <span class="section-title">{{langTexts[selectedLang.text].sections.couple}}</span>
       <div class="row couple-wrapper">
         <div id="groom" class="col-lg-6 couple-content">
           <div class="couple-avatar"></div>
           <div class="couple-flexing pt-5">
-            <h3 class="couple-title">THE GROOM</h3>
+            <h3 class="couple-title">{{langTexts[selectedLang.text].couple.groom}}</h3>
             <h3 class="couple-name">Trần Minh Chánh</h3>
           </div>
         </div>
         <div id="bride" class="col-lg-6 couple-content mt-lg-0 mt-5">
           <div class="couple-avatar"></div>
           <div class="couple-flexing pt-5">
-            <h3 class="couple-title">THE BRIDE</h3>
+            <h3 class="couple-title">{{langTexts[selectedLang.text].couple.bride}}</h3>
             <h3 class="couple-name">Phạm Hồng Quỳnh Anh</h3>
           </div>
         </div>
@@ -94,7 +112,7 @@
     <div id="event" class="container-fluid">
       <div class="event-wrapper container-fluid cq-section">
         <div class="container-xl">
-          <span class="section-title">Wedding Event</span>
+          <span class="section-title">{{langTexts[selectedLang.text].sections.event}}</span>
 
           <div id="invitation" class="row">
             <div id="restaurant" class="col-lg-6"></div>
@@ -103,9 +121,10 @@
               class="col-lg-6 mt-lg-0 mt-5 ps-0 ps-lg-5"
             >
               <p class="text-center text-md-start">
-                Our Wedding Party Will Be Held At
+
+                {{langTexts[selectedLang.text].event.descriptions}}
               </p>
-              <!-- <ul>
+              <!-- <ul>                
                 <li>Saturday, 16 Sep, 2023</li>
                 <li>at 17:30</li>
                 <li>TRÀNG AN PALACE</li>
@@ -124,7 +143,7 @@
               <div class="row">
                 <div class="col-md-4">
                   <ul class="p-0">
-                    <li><i class="bi bi-calendar2-heart"></i> 16 Sep 2023</li>
+                    <li><i class="bi bi-calendar2-heart"></i> {{langTexts[selectedLang.text].date}}</li>
                     <li><i class="bi bi-clock"></i> 17h30</li>
                   </ul>
                 </div>
@@ -151,11 +170,9 @@
     </div>
 
     <div id="cheer" class="container-md cq-section">
-      <span class="section-title">Cheers to Our Love</span>
+      <span class="section-title">{{langTexts[selectedLang.text].sections.cheer}}</span>
       <p>
-        We are honored and greateful to have you and your love ones at our
-        wedding party. Please let us know whether you could come and cheer to
-        our happiness.
+        {{langTexts[selectedLang.text].cheer.invitation}}
       </p>
       <iframe
         src="https://docs.google.com/forms/d/e/1FAIpQLSex9CkfTMomf1g5Lcn1gFuCIB2fv9UId4DXgdCzgjiP7KEzmA/viewform?embedded=true"

@@ -37,6 +37,7 @@ const handwriting = Dancing_Script({
 
 export const metadata: Metadata = {
   title: 'Quỳnh Anh & Minh Chánh',
+  formatDetection: { telephone: false },
 };
 
 export default function RootLayout({

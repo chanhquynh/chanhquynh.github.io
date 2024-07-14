@@ -1,0 +1,502 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+.cq-layout-wrapper {
+  @apply !bg-cq-secondary !font-sans text-base !block min-h-dvh overflow-hidden scroll-smooth;
+}
+
+a,
+span,
+p {
+  @apply font-sans text-base md:text-lg lg:text-base xl:text-lg;
+}
+
+a.cq-btn {
+  @apply px-2 pb-1 pt-1.5 md:px-2.5 md:pt-3 md:pb-2.5 
+  border border-cq-emphasize transition-all;
+}
+a.cq-btn-primary {
+  @apply text-cq-emphasize-50 hover:text-cq-emphasize focus:text-cq-emphasize 
+  bg-cq-emphasize hover:bg-transparent focus:bg-transparent;
+}
+a.cq-btn-outline {
+  @apply text-cq-emphasize hover:text-cq-emphasize-50 focus:text-cq-emphasize-50 
+  bg-transparent hover:bg-cq-emphasize focus:bg-cq-emphasize;
+}
+
+.wedding-btns {
+  @apply flex flex-col lg:flex-row items-center gap-1 sm:gap-2;
+}
+.wedding-btns a {
+  @apply w-full lg:w-auto text-center;
+}
+
+::-webkit-scrollbar,
+scrollbar {
+  @apply bg-cq-emphasize-200 w-1 lg:w-2.5;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-cq-emphasize hover:bg-cq-emphasize-700;
+}
+
+.cq-section ::-webkit-scrollbar,
+.cq-section scrollbar {
+  @apply bg-transparent w-0.5 lg:w-1.5;
+}
+.cq-section ::-webkit-scrollbar-thumb {
+  @apply bg-cq-emphasize-400/30 hover:bg-cq-emphasize-700/50;
+}
+
+.cq-logo {
+  @apply h-full flex flex-wrap items-stretch content-center
+   pt-0.5 gap-1 text-cq-emphasize text-3xl;
+}
+.cq-logo svg {
+  @apply pb-0.5;
+}
+#cq-nav {
+  @apply h-16 hidden lg:block relative max-w-6xl
+  left-1/2 translate-x-[-50%] px-5;
+}
+#cq-nav .cq-logo {
+  @apply absolute;
+}
+
+#cq-nav .cq-anchor {
+  @apply h-16 w-full absolute top-[-4rem] before:border-0
+  flex flex-wrap items-center justify-end;
+}
+#cq-nav .cq-anchor span.ant-anchor-ink {
+  @apply hidden;
+}
+#cq-nav .cq-anchor span.ant-anchor-ink-visible {
+  @apply !block bg-cq-emphasize;
+}
+#cq-nav .cq-anchor div.ant-anchor-link {
+  @apply ps-6 first-of-type:ps-0;
+}
+#cq-nav .cq-anchor div.ant-anchor-link a.ant-anchor-link-title,
+#cq-nav
+  .cq-anchor
+  div.ant-anchor-link
+  a.ant-anchor-link-title
+  a.cq-anchor-transfer {
+  padding-block-start: 0.25rem;
+  @apply text-cq-primary hover:text-cq-emphasize focus:text-cq-emphasize !text-xl;
+}
+#cq-nav .cq-anchor div.ant-anchor-link a.ant-anchor-link-title-active {
+  @apply text-cq-emphasize !font-semibold;
+}
+
+#cq-header {
+  @apply flex justify-between items-center lg:hidden px-4 
+  bg-cq-emphasize text-cq-secondary;
+}
+#cq-header .cq-logo {
+  @apply text-white;
+}
+#mobile-logo {
+  @apply w-11;
+}
+#mobile-nav .cq-anchor .ant-anchor {
+  @apply before:border-s-0;
+}
+#mobile-nav .cq-anchor span.ant-anchor-ink {
+  @apply hidden;
+}
+#mobile-nav .cq-anchor .ant-anchor .ant-anchor-link {
+  @apply ps-0
+  border-b-cq-emphasize-100 border-b-2 last-of-type:border-b-0;
+}
+#mobile-nav .cq-anchor .ant-anchor div.ant-anchor-link a.ant-anchor-link-title,
+#mobile-nav
+  .cq-anchor
+  .ant-anchor
+  div.ant-anchor-link
+  a.ant-anchor-link-title
+  a {
+  @apply text-center p-2 text-xl font-medium hover:text-cq-emphasize focus:text-cq-emphasize text-cq-primary;
+}
+#mobile-nav .cq-anchor div.ant-anchor-link a.ant-anchor-link-title-active {
+  @apply text-cq-emphasize bg-cq-emphasize-50 rounded-lg !font-semibold;
+}
+#mobile-nav-btn {
+  @apply w-11 h-11 border-2 border-cq-secondary bg-transparent;
+}
+#mobile-nav-btn span.anticon {
+  @apply text-cq-secondary text-2xl;
+}
+
+#cq-content-wrapper__outer {
+  @apply h-[calc(100dvh-4rem)] 
+  overflow-y-auto bg-white;
+}
+
+.cq-section {
+  @apply w-full flex flex-col items-center py-10 relative;
+}
+.cq-section .section-bg {
+  @apply absolute top-0 bottom-0 left-0 right-0;
+}
+.cq-section .section-title,
+.cq-transfer-modal .section-title {
+  @apply font-handwriting text-3xl md:text-5xl text-cq-emphasize text-center;
+}
+.cq-section .content-title {
+  @apply font-sans text-lg md:text-xl text-cq-emphasize py-4 md:py-6;
+}
+.cq-divider {
+  @apply py-4 md:py-6 w-60 md:w-72 text-cq-emphasize-400;
+}
+.cq-divider path {
+  @apply fill-current;
+}
+.section-wrapper {
+  @apply flex flex-col items-center w-full relative;
+}
+.section-content-bg {
+  @apply absolute top-0 bottom-0 left-0 right-0 bg-cover;
+}
+.section-content-bg::after {
+  box-shadow:
+    inset 0 30px 40px -5px,
+    inset 0 -30px 40px -5px;
+  content: '';
+  @apply block h-full w-full text-white;
+}
+.section-content--wrapper {
+  @apply sticky z-10
+  max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-0 auto-cols-auto w-full 
+  px-5 py-10 lg:px-16 justify-items-center;
+}
+.section-content {
+  @apply flex flex-col items-center justify-center w-full;
+}
+
+#top-info {
+  @apply relative;
+}
+#top-info .top-info-heart {
+  @apply absolute top-[calc(50%-1.125rem)] left-[calc(50%-1.125rem)]
+  sm:top-[calc(50%-2.275rem)] sm:left-[calc(50%-2.275rem)]  
+  text-cq-emphasize text-4xl sm:text-7xl last-of-type:animate-ping;
+}
+#top-info-wrapper {
+  @apply grid grid-cols-1 lg:grid-cols-2 auto-cols-auto gap-0.5
+  h-auto lg:h-[calc(100dvh-4rem)] bg-cq-emphasize;
+}
+#top-info .top-info-content {
+  @apply aspect-square lg:aspect-auto bg-cq-emphasize-50;
+}
+#top-info #top-info-pic {
+  @apply bg-[url('/top_cover.jpg')] bg-cover bg-center row-start-1 lg:row-start-auto;
+}
+#top-info #top-info-intro {
+  @apply flex flex-col items-center justify-center bg-cq-emphasize-50
+  gap-5 sm:gap-8 md:gap-16 xl:gap-20;
+}
+#top-info-names {
+  line-height: normal !important;
+  @apply !font-handwriting !font-extrabold text-cq-emphasize
+  text-4xl sm:text-5xl md:text-8xl lg:text-7xl xl:text-8xl;
+}
+#top-info-date {
+  @apply text-sm md:text-2xl lg:text-lg xl:text-2xl text-cq-emphasize !font-thin
+  flex items-center gap-2;
+}
+#top-info-date .top-info-date-line {
+  @apply h-[1px] w-4 md:w-6 lg:w-5 xl:w-6 bg-cq-emphasize;
+}
+
+#couple .section-content-bg {
+  @apply bg-[url('/bg-floral-3.jpg')] opacity-[8%];
+}
+#couple #bride .couple-content {
+  @apply lg:last-of-type:row-start-1;
+}
+#couple .couple-flexing {
+  @apply h-full flex flex-col justify-center w-full md:max-w-md;
+}
+#couple .couple-flexing .couple-title {
+  @apply text-2xl font-sans;
+}
+#couple .couple-flexing .couple-name {
+  @apply text-5xl font-handwriting text-cq-emphasize-600 font-extrabold
+  pt-2;
+}
+#couple .couple-flexing .couple-description {
+  @apply text-lg text-justify font-sans pt-6;
+}
+#couple .couple-avatar {
+  @apply bg-contain bg-no-repeat bg-center
+  aspect-square h-auto md:max-w-md lg:max-w-sm xl:max-w-md w-full
+  border-2 border-cq-emphasize shadow-md drop-shadow-md;
+}
+#couple #bride {
+  @apply !pb-0;
+}
+#couple #bride .section-content {
+  @apply lg:items-end;
+}
+#couple #groom .section-content {
+  @apply lg:items-start;
+}
+#couple #bride .couple-avatar {
+  @apply bg-[url('/codau.jpg')];
+}
+#couple #groom .couple-avatar {
+  @apply bg-[url('/chure.jpg')];
+}
+
+#photos {
+  @apply bg-cq-emphasize-50;
+}
+#photos .section-bg {
+  @apply bg-[url('/blessing-bg.png')] bg-auto opacity-40;
+}
+#photos .section-content--wrapper {
+  @apply block max-lg:!px-0 drop-shadow-xl;
+}
+#photos .cq-carousel .carousel-slider {
+  @apply aspect-[3/2];
+}
+#photos .cq-carousel .carousel-slider button {
+  @apply max-lg:hidden;
+}
+#photos .cq-carousel .slider-wrapper,
+#photos .cq-carousel .slider,
+#photos .cq-carousel .slide div,
+#photos .cq-carousel .cq-carousel-photo {
+  @apply h-full max-h-full;
+}
+#photos .cq-carousel .slide div {
+  @apply bg-white;
+}
+#photos .cq-carousel .thumbs-wrapper {
+  @apply mb-0;
+}
+#photos .cq-carousel .thumb {
+  @apply border-transparent border-8 opacity-30 hover:opacity-100 align-middle mx-0 aspect-[3/2];
+}
+#photos .cq-carousel .thumb .cq-carousel-photo {
+  @apply max-h-none h-auto !w-full;
+}
+#photos .cq-carousel .thumb.selected {
+  @apply border-0 opacity-100;
+}
+
+.cq-form label {
+  @apply !font-sans !text-base min-w-40 !text-cq-emphasize-600 font-medium
+  justify-start md:justify-end text-nowrap;
+}
+.cq-form-input,
+.cq-form-input input {
+  @apply !font-sans !text-base placeholder:!text-sm;
+}
+.cq-form-input-number {
+  @apply !w-12 h-fit;
+}
+.cq-form-input-number input {
+  @apply !text-center;
+}
+.cq-form .ant-form-item-explain-error {
+  @apply font-sans !h-fit;
+}
+
+#wedding .section-wrapper {
+  @apply mt-5;
+}
+#wedding .section-content-bg {
+  @apply bg-[url('/couple-bg.jpg')] opacity-15 bg-cover;
+}
+#wedding .section-content--wrapper {
+  @apply gap-2 md:gap-5;
+}
+#wedding .section-content {
+  @apply aspect-auto justify-around gap-5 max-w-md;
+}
+#cq-wedding-cover {
+  @apply bg-[url('/wedding-cover.jpg')] bg-cover bg-center lg:aspect-[4/3] 
+  w-full max-w-64 md:max-w-md
+  aspect-square rounded-full lg:rounded-none;
+}
+.cq-wedding-location {
+  @apply w-full hidden lg:block;
+}
+.cq-wedding-location-lg {
+  @apply hidden lg:block;
+}
+.cq-wedding-location-mobile {
+  @apply block lg:hidden text-center;
+}
+.cq-wedding-location span,
+.cq-wedding-location span a {
+  @apply block text-base md:text-lg;
+}
+.cq-wedding-restaurant {
+  @apply text-cq-emphasize font-semibold font-sans text-xl md:text-2xl block;
+}
+.cq-wedding-address {
+  @apply pt-2;
+}
+#wedding-btns {
+  @apply flex justify-center w-full;
+}
+#cq-wedding-calendar--wrapper {
+  box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.3);
+  @apply border-0 pt-3 lg:border-8 border-cq-emphasize-300 md:p-6 aspect-square
+  flex flex-col items-center justify-center relative bg-white/30;
+}
+#cq-wedding-calendar-bg {
+  @apply bg-[url('/couple-bg.jpg')] bg-cover
+  absolute w-full h-full opacity-15;
+}
+#cq-wedding-save-the-date {
+  @apply font-handwriting text-4xl md:text-6xl pb-1 text-cq-emphasize;
+}
+#cq-wedding-month {
+  @apply font-sans text-center text-base md:text-xl pb-1;
+}
+#cq-wedding-calendar {
+  @apply bg-transparent;
+}
+#cq-wedding-calendar th,
+#cq-wedding-calendar td {
+  @apply p-0 sm:px-1 sm:pt-1 sm:pb-0.5 font-sans text-center text-sm md:text-lg font-light
+  inline-flex items-center justify-center aspect-square w-8 md:w-10 box-content;
+}
+#cq-wedding-calendar th {
+  @apply text-cq-emphasize-500 border-y-cq-emphasize-200 border-y;
+}
+#cq-wedding-calendar td.cq-wedding-day {
+  @apply font-medium bg-cq-emphasize rounded-full text-cq-emphasize-50;
+}
+
+#confirmation .section-content-bg {
+  @apply bg-[url('/bg-floral-1.jpg')] opacity-15 bg-center;
+}
+#confirmation .section-content--wrapper {
+  @apply grid-cols-1;
+}
+#confirmation #cq-confirmation--wrapper {
+  @apply max-w-lg w-full bg-white/70
+  border-4 lg:border-8 border-cq-emphasize-300 
+  p-4 aspect-square justify-start overflow-visible md:overflow-auto
+  shadow-lg drop-shadow-lg;
+}
+#cq-confirmation-form {
+  @apply w-full inline border-b-cq-emphasize border-b;
+}
+#cq-confirmation-form .ant-row.ant-form-item-row {
+  @apply items-center;
+}
+#cq-confirmation-form--addons-submit {
+  @apply flex justify-between items-center;
+}
+#confirmed-participant {
+  @apply overflow-auto h-full w-full border border-cq-emphasize p-4;
+}
+.cq-confirmed-participant {
+  @apply !p-1.5 !text-center odd:bg-cq-emphasize-100/40;
+}
+
+#blessing .section-content--wrapper {
+  @apply gap-5;
+}
+#blessing {
+  @apply bg-cq-emphasize-50;
+}
+#blessing .section-bg {
+  @apply bg-[url('/blessing-bg.png')] bg-auto opacity-40;
+}
+#blessing .section-content-bg {
+  @apply after:hidden;
+}
+#blessing .section-content {
+  @apply aspect-square max-w-lg bg-white/70 relative shadow-xl drop-shadow-xl;
+}
+#blessing .section-content .blessing-content-bg {
+  @apply absolute top-0 bottom-0 left-0 right-0
+  bg-[url('/bg-floral-4.png')] bg-cover opacity-50 bg-right;
+}
+#cq-blessing-form--wrapper {
+  @apply h-full w-full border md:border-2 border-cq-emphasize-300 p-0.5 md:p-1;
+}
+#cq-blessing-form {
+  @apply h-full w-full border md:border-2 border-cq-emphasize-300 p-2
+  flex items-center justify-center;
+}
+#cq-blessing-form-content {
+  @apply aspect-square w-full md:w-10/12 flex flex-col;
+}
+#cq-blessing-form-content .cq-form-item {
+  @apply mb-4;
+}
+#cq-blessing-form-content .cq-form-item__blessing {
+  @apply flex-1;
+}
+#cq-blessing-form-content .cq-form-item__blessing .ant-form-item-row {
+  @apply flex-nowrap;
+}
+#cq-blessing-form-content .cq-form-item__blessing .ant-form-item-row,
+#cq-blessing-form-content .ant-form-item-control,
+#cq-blessing-form-content .ant-form-item-control-input-content,
+#cq-blessing-form-content .ant-form-item-control-input,
+#cq-blessing-form-content textarea {
+  @apply h-full flex-auto;
+}
+#cq-blessing-form-content .ant-form-item-label {
+  @apply basis-auto;
+}
+#blessing #cq-blessing-form label {
+  @apply justify-start block;
+}
+#cq-blessing-form-content #cq-blessing-submit-btn {
+  @apply w-fit self-center;
+}
+#blessing #cq-blessing-display {
+  @apply overflow-auto h-full w-full border-4 md:border-8 border-cq-emphasize-300 p-4 sticky;
+}
+.cq-received-blessing {
+  @apply !p-1.5 odd:bg-cq-emphasize-100/60;
+}
+.cq-received-blessing span {
+  @apply block;
+}
+.cq-received-blessing__name {
+  @apply pb-1 font-extrabold;
+}
+.cq-received-blessing__blessing {
+  @apply font-light;
+}
+
+#transfer-photo-modal {
+  @apply aspect-square w-full border-4 lg:border-8 border-cq-emphasize-300
+  bg-[url('/transfer.jpg')] bg-contain bg-center shadow-lg drop-shadow-lg
+  mt-4;
+}
+
+#footer {
+  @apply justify-center bg-cq-emphasize-100;
+}
+#footer .section-bg {
+  @apply bg-[url('/footer_bg.png')] bg-cover bg-center;
+}
+#footer .section-wrapper {
+  @apply gap-4 md:gap-6;
+}
+#footer #footer-save-the-date,
+#footer #footer-date {
+  @apply font-sans text-base md:text-2xl;
+}
+#footer .footer-divider {
+  @apply max-sm:w-40 py-0;
+}
+#footer #footer-names {
+  line-height: normal !important;
+  @apply !font-handwriting !font-extrabold text-cq-emphasize-600
+  text-2xl sm:text-5xl lg:text-7xl xl:text-8xl;
+}

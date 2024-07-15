@@ -66,7 +66,7 @@ export default function Blessing() {
         footer: [],
         content: (
           <span className="cq-success-modal-content">
-            Cám ơn anh/chị rất nhiều vì đã gửi những lời chúc mừng tốt đẹp nhất
+            Cám ơn quý vị rất nhiều vì đã gửi những lời chúc mừng tốt đẹp nhất
             đến vợ chồng chúng tôi! <br /> Dữ liệu sẽ được cập nhật hoàn chỉnh
             sau 30 phút.
           </span>
@@ -96,7 +96,7 @@ export default function Blessing() {
         >
           <Item
             className="cq-form-item"
-            label="Tên của anh/chị"
+            label="Tên của quý vị"
             required={true}
             name="name"
             rules={[

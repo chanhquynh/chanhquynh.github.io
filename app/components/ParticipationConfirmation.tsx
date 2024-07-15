@@ -75,10 +75,10 @@ const ParticipationConfirmation = (props: Props) => {
         footer: [],
         content: (
           <span className="cq-success-modal-content">
-            Cám ơn anh/chị rất nhiều vì đã nhận lời tham dự tiệc cưới của vợ
-            chồng chúng tôi! Sự hiện diện của anh/chị là niềm vinh hạnh cho gia
-            đình chúng tôi. <br /> Dữ liệu sẽ được cập nhật hoàn chỉnh sau 30
-            phút.
+            Cám ơn quý khách rất nhiều vì đã nhận lời tham dự tiệc cưới của vợ
+            chồng chúng tôi! Sự hiện diện của quý khách là niềm vinh hạnh cho
+            gia đình chúng tôi. <br /> Dữ liệu sẽ được cập nhật hoàn chỉnh sau
+            30 phút.
           </span>
         ),
         title: 'Xác nhận thành công!',
@@ -105,14 +105,14 @@ const ParticipationConfirmation = (props: Props) => {
         >
           <Item
             className="cq-form-item"
-            label="Tên của anh/chị"
+            label="Tên của quý khách"
             required={true}
             name="name"
             rules={[
               {
                 required: true,
                 whitespace: true,
-                message: 'Vui lòng điền tên của anh/chị.',
+                message: 'Vui lòng điền tên của quý khách.',
               },
             ]}
           >
@@ -162,10 +162,10 @@ const ParticipationConfirmation = (props: Props) => {
           <div className="section-content-bg"></div>
           <div className="section-content--wrapper">
             <span className="pb-4 text-center">
-              Sự hiện diện của quý anh chị là niềm vinh hạnh cho gia đình chúng
+              Sự hiện diện của quý khách là niềm vinh hạnh cho gia đình chúng
               tôi. <br />
-              Vui lòng thông báo cho gia đình chúng tôi sự hiện diện của anh chị
-              để chúng tôi có thể tiếp đón chu đáo.
+              Vui lòng thông báo cho gia đình chúng tôi sự hiện diện của quý
+              khách để chúng tôi có thể tiếp đón chu đáo.
             </span>
             <div id="cq-confirmation--wrapper" className="section-content ">
               {generateForm()}

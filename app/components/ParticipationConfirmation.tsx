@@ -76,9 +76,9 @@ const ParticipationConfirmation = (props: Props) => {
         content: (
           <span className="cq-success-modal-content">
             Cám ơn anh/chị rất nhiều vì đã nhận lời tham dự tiệc cưới của vợ
-            chồng chúng tôi! Sự hiện diện của anh/chị là niềm vinh dự lớn lao
-            cho gia đình chúng tôi. <br /> Dữ liệu sẽ được cập nhật hoàn chỉnh
-            sau 30 phút.
+            chồng chúng tôi! Sự hiện diện của anh/chị là niềm vinh hạnh cho gia
+            đình chúng tôi. <br /> Dữ liệu sẽ được cập nhật hoàn chỉnh sau 30
+            phút.
           </span>
         ),
         title: 'Xác nhận thành công!',
@@ -162,7 +162,7 @@ const ParticipationConfirmation = (props: Props) => {
           <div className="section-content-bg"></div>
           <div className="section-content--wrapper">
             <span className="pb-4 text-center">
-              Sự hiện diện của quý anh chị là niềm hạnh phúc của gia đình chúng
+              Sự hiện diện của quý anh chị là niềm vinh hạnh cho gia đình chúng
               tôi. <br />
               Vui lòng thông báo cho gia đình chúng tôi sự hiện diện của anh chị
               để chúng tôi có thể tiếp đón chu đáo.

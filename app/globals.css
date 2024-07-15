@@ -357,11 +357,33 @@ scrollbar {
   @apply bg-[url('/couple-bg.jpg')] bg-cover
   absolute w-full h-full opacity-15;
 }
+#wedding .cq-wedding-invitation {
+  @apply text-center font-medium hidden;
+}
+#wedding .cq-wedding-invitation.cq-wedding-invitation--visible {
+  @apply block;
+}
 #cq-wedding-save-the-date {
   @apply font-handwriting text-4xl md:text-6xl pb-1 text-cq-emphasize;
 }
-#cq-wedding-month {
-  @apply font-sans text-center text-base md:text-xl pb-1;
+
+#cq-wedding-calendar .cq-wedding-time {
+  @apply bg-cq-emphasize-200/50 hidden;
+}
+#cq-wedding-calendar .cq-wedding-time.cq-wedding-time--visible {
+  @apply block;
+}
+#cq-wedding-calendar .cq-wedding-month-time {
+  @apply w-full flex justify-center;
+}
+#cq-wedding-calendar .cq-wedding-month-time.cq-wedding-month-time--invitation {
+  @apply justify-between;
+}
+#cq-wedding-calendar .cq-wedding-month-time * {
+  @apply font-sans text-center text-base md:text-xl font-normal;
+}
+#cq-wedding-calendar .cq-wedding-month-time h2 {
+  @apply rounded-md hover:bg-cq-emphasize-100/50 pt-1 px-2;
 }
 #cq-wedding-calendar {
   @apply bg-transparent;
@@ -369,13 +391,16 @@ scrollbar {
 #cq-wedding-calendar th,
 #cq-wedding-calendar td {
   @apply p-0 sm:px-1 sm:pt-1 sm:pb-0.5 font-sans text-center text-sm md:text-lg font-light
-  inline-flex items-center justify-center aspect-square w-8 md:w-10 box-content;
+   w-8 h-8 md:w-10 md:h-10 box-content;
 }
 #cq-wedding-calendar th {
-  @apply text-cq-emphasize-500 border-y-cq-emphasize-200 border-y;
+  @apply text-cq-emphasize-500 border-b-cq-emphasize-200 border-b;
+}
+#cq-wedding-calendar .cq-wedding-day {
+  @apply font-bold;
 }
 #cq-wedding-calendar td.cq-wedding-day {
-  @apply font-medium bg-cq-emphasize rounded-full text-cq-emphasize-50;
+  @apply bg-cq-emphasize rounded-full text-cq-emphasize-50;
 }
 
 #confirmation .section-content-bg {

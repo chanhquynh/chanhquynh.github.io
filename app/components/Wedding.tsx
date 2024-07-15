@@ -1,12 +1,26 @@
 'use client';
 
+import { ClockCircleOutlined } from '@ant-design/icons';
+import { useEffect, useState } from 'react';
+
 import { Divider, WeddingButtons } from '.';
 
 export default function Wedding() {
+  const [invitation, setInvitation] = useState<boolean>(false);
+  useEffect(() => {
+    if (window.location.pathname !== '/') setInvitation(true);
+  }, []);
   return (
     <div id="wedding" className="cq-section">
       <h1 className="section-title">Thông Tin Tiệc Cưới</h1>
       <Divider />
+      <span
+        className={`cq-wedding-invitation ${invitation ? 'cq-wedding-invitation--visible' : ''}`}
+      >
+        TRÂN TRỌNG KÍNH MỜI QUÝ KHÁCH
+        <br />
+        Đến tham dự buổi tiệc chung vui cùng gia đình chúng tôi
+      </span>
       <div className="section-wrapper">
         <div className="section-content-bg"></div>
         <div className="section-content--wrapper">
@@ -35,16 +49,29 @@ export default function Wedding() {
           <div id="cq-wedding-date-info" className="section-content">
             <div id="cq-wedding-calendar--wrapper">
               {/* <div id="cq-wedding-calendar-bg"></div> */}
-              <h2 id="cq-wedding-month">THÁNG 9, 2024</h2>
               <table id="cq-wedding-calendar">
                 <thead>
+                  <tr className="">
+                    <td colSpan={7}>
+                      <div
+                        className={`cq-wedding-month-time ${invitation ? 'cq-wedding-month-time--invitation' : ''}`}
+                      >
+                        <h2>THÁNG 9, 2024</h2>
+                        <h2
+                          className={`cq-wedding-time ${invitation ? 'cq-wedding-time--visible' : ''}`}
+                        >
+                          <ClockCircleOutlined /> 17:00
+                        </h2>
+                      </div>
+                    </td>
+                  </tr>
                   <tr>
                     <th>T2</th>
                     <th>T3</th>
                     <th>T4</th>
                     <th>T5</th>
                     <th>T6</th>
-                    <th>T7</th>
+                    <th className="cq-wedding-day">T7</th>
                     <th>CN</th>
                   </tr>
                 </thead>

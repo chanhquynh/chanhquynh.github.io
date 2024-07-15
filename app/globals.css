@@ -272,6 +272,9 @@ scrollbar {
 #photos .cq-carousel .cq-carousel-photo {
   @apply h-full max-h-full;
 }
+#photos .cq-carousel .cq-carousel-photo {
+  @apply w-auto;
+}
 #photos .cq-carousel .slide div {
   @apply bg-white;
 }

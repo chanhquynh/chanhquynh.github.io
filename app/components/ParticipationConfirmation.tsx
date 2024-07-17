@@ -15,7 +15,7 @@ type Props = {
 };
 
 const octokit = new Octokit({
-  auth: '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',
+  auth: process.env.NEXT_PUBLIC_TOKEN,
 });
 
 const ParticipationConfirmation = (props: Props) => {

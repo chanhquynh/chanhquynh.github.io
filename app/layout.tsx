@@ -8,7 +8,6 @@ import { Comfortaa, Dancing_Script, Lora } from 'next/font/google';
 import React, { ReactNode } from 'react';
 
 import {
-  Blessing,
   Couple,
   Footer,
   Navigation,
@@ -75,7 +74,6 @@ export default function RootLayout({
                 <Couple />
                 <Photos />
                 <Wedding />
-                <Blessing />
                 {children}
                 <Footer />
               </Layout>

@@ -2,34 +2,27 @@
 import { Form, Input, Modal, Skeleton } from 'antd';
 import Item from 'antd/es/form/FormItem';
 import TextArea from 'antd/es/input/TextArea';
-import Papa from 'papaparse';
+import { Octokit } from 'octokit';
 import { useState } from 'react';
 import useSWR from 'swr';
 
 import Links from '../data/Links';
+import useOctokit from '../data/useOctokit';
 import { Divider } from './';
 
-export default function Blessing() {
+export default function Blessing({ octokit }: { octokit: Octokit }) {
   const [isSending, setIsSending] = useState<boolean>(false);
-  type Blesses = {
-    'Dấu thời gian': string;
-    name: string;
-    blessing: string;
-    response?: string;
-  };
+  const { getData, updateData } = useOctokit(octokit);
 
-  const { data, mutate, isLoading } = useSWR(Links.BLESSING.data, (url) =>
-    fetch(url, { cache: 'no-store' })
-      .then((res) => res.text())
-      .then(
-        (data) => Papa.parse(data, { header: true }).data.reverse() as Blesses[]
-      )
+  const { data, mutate, isLoading } = useSWR(Links.BLESSING.fileName, () =>
+    getData(Links.BLESSING.gistId, Links.BLESSING.fileName)
   );
 
-  const generateBlesses = (fetchedData?: Blesses[]) => {
-    if (!fetchedData) return '';
+  const generateBlesses = () => {
+    if (!data) return '';
+    const _data = [...data].reverse();
     const blesses = [];
-    for (const bless of fetchedData) {
+    for (const bless of _data) {
       blesses.push(
         <p className="cq-received-blessing">
           <span className="cq-received-blessing__name">{bless.name}</span>
@@ -46,18 +39,19 @@ export default function Blessing() {
   const submitForm = async () => {
     setIsSending(true);
     const values = await form.validateFields();
-    const name = encodeURIComponent(values.name);
-    const blessing = encodeURIComponent(values.blessinginput);
 
-    await fetch(
-      `https://docs.google.com/forms/d/e/${Links.BLESSING.formId}/formResponse?usp=pp_url&entry.2069906091=${name}&entry.1102852873=${blessing}&entry.1618139638=0&submit=Submit`,
-      {
-        headers: {
-          'Content-Type': 'text/plain',
-        },
-        mode: 'no-cors',
-      }
-    ).then(() => {
+    const _blessingData = data ? [...data] : [];
+    _blessingData.push({
+      name: values.name,
+      blessing: values.blessing,
+    });
+
+    const updateReqStatus = await updateData(
+      Links.BLESSING.gistId,
+      Links.BLESSING.fileName,
+      _blessingData
+    );
+    if (updateReqStatus == 200) {
       Modal.success({
         centered: true,
         keyboard: true,
@@ -67,16 +61,27 @@ export default function Blessing() {
         content: (
           <span className="cq-success-modal-content">
             Cám ơn quý vị rất nhiều vì đã gửi những lời chúc mừng tốt đẹp nhất
-            đến vợ chồng chúng tôi! <br /> Dữ liệu sẽ được cập nhật hoàn chỉnh
-            sau 30 phút.
+            đến vợ chồng chúng tôi!
           </span>
         ),
         title: 'Gửi thành công!',
       });
       form.resetFields();
       mutate();
-      setIsSending(false);
-    });
+    } else {
+      Modal.error({
+        centered: true,
+        keyboard: true,
+        maskClosable: true,
+        closable: true,
+        footer: [],
+        content: (
+          <span className="cq-success-modal-content">Đã xảy ra lỗi...</span>
+        ),
+        title: 'KHÔNG thành công!',
+      });
+    }
+    setIsSending(false);
   };
 
   const submitBtnClick = () => {
@@ -157,7 +162,7 @@ export default function Blessing() {
           <div id="cq-blessing-display--wrapper" className="section-content ">
             <div className="blessing-content-bg"></div>
             <div id="cq-blessing-display">
-              {isLoading ? <Skeleton active /> : generateBlesses(data)}
+              {isLoading ? <Skeleton active /> : generateBlesses()}
             </div>
           </div>
         </div>

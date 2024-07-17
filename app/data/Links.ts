@@ -1,23 +1,23 @@
 const Links = {
   A6: {
-    data: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTi4imdFTJDusb_WOlp3wgYOJpUvkQc-dr2AqCqLUgreds6Pm0ZKnfS108dCvrw7SRCpC13qkNX2tLV/pub?gid=1096533726&single=true&output=csv',
-    formId: '1FAIpQLSc8TAPx5V9IuAW6D3k0u44S0u1Eo-pxv2abKPZsdfg5hC7NJg',
+    gistId: 'd29fd596b091f2446cbfc051a0c893e1',
+    fileName: 'cq-a61114.json',
   },
   BCHCSE: {
-    data: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ1uPLEhW0idZwCKEZ11dHvsWdBZdymVyiyoEEx6DI_yic0aU57w8Q2b-VlriceISWlg_d8-Abz-GcB/pub?gid=993619012&single=true&output=csv',
-    formId: '1FAIpQLSf8x7DWuzvyZAhhVCLTWy06KSNihwrlq6ZlMH24J-J5-CJ4qg',
+    gistId: '360407a211a5a99bacd7d5efa819930f',
+    fileName: 'cq-bch-cse.json',
   },
   HCMUTK14: {
-    data: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRLBwvX_DnKWku-HS1-1LqXRsnerRo9Oc96AeGPjMrLjmLdtupglw2wd9QMRh274IqlkbrVXj67X1GO/pub?gid=1415684439&single=true&output=csv',
-    formId: '1FAIpQLSfy2YDc7CbvBW0RYFx7IYvLQMyN4dN1N1eSq7KYrg_40vzRuA',
+    gistId: '9ea7d02f04ae2400a12de2ff45b9ad8f',
+    fileName: 'cq-hcmut-k14.json',
   },
   TIEC: {
-    data: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRrS5Xz_6sZUJsB7Xy9FWKsQEllxtdZP7SsRvBSBPgHB0PLX_f2UkE3Ubyn-bszKDMmzxzsGj9agVCc/pub?gid=1223223304&single=true&output=csv',
-    formId: '1FAIpQLSfAzmwkNLJ93ZIt36tNxFLP4TbmgrsnmqS5D7my_vJVleYQsw',
+    gistId: '5cbd277baabf01a58c9297c776a33f7c',
+    fileName: 'cq-tiec.json',
   },
   BLESSING: {
-    data: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQNKhVnHSwEct62_1g4G_AOLDzifQ_gXP2qX34dU_WErmBfbGnM3MC2cIrF6iZhzygkKoHSDjC_M1J1/pub?gid=1243427394&single=true&output=csv',
-    formId: '1FAIpQLSfO8n37xBfPfysxvOuzJcCVuFBGEqFG6gN3w9lkDm7_bAc9cQ',
+    gistId: '8edd5908c4cfbd8bfdd359a2402d4092',
+    fileName: 'cq-blessing.json',
   },
 };
 

@@ -3,42 +3,35 @@
 // import type { FormProps } from 'antd';
 import { Form, Input, InputNumber, Modal, Skeleton } from 'antd';
 import Item from 'antd/es/form/FormItem';
-import Papa from 'papaparse';
+import { Octokit } from 'octokit';
 import { useState } from 'react';
 import useSWR from 'swr';
 
-import { Divider } from '.';
+import useOctokit from '../data/useOctokit';
+import { Blessing, Divider } from '.';
 
 type Props = {
-  links: { data: string; formId: string };
+  links: { gistId: string; fileName: string };
 };
+
+const octokit = new Octokit({
+  auth: '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',
+});
 
 const ParticipationConfirmation = (props: Props) => {
   const [isSending, setIsSending] = useState<boolean>(false);
-  type Participant = {
-    'Dấu thời gian': string;
-    name: string;
-    addon?: string;
-    total: number;
-  };
+  const { getData, updateData } = useOctokit(octokit);
 
-  const { data, mutate, isLoading } = useSWR(props.links.data, (url) =>
-    fetch(url, { cache: 'no-store' })
-      .then((res) => res.text())
-      .then(
-        (data) =>
-          Papa.parse(data, { header: true }).data.reverse() as Participant[]
-      )
+  const { data, mutate, isLoading } = useSWR(props.links.fileName, () =>
+    getData(props.links.gistId, props.links.fileName)
   );
 
-  const generateParticipants = (fetchedData?: Participant[]) => {
-    if (!fetchedData) return '';
+  const generateParticipants = () => {
+    if (!data) return '';
     const participants = [];
-    for (const participant of fetchedData) {
-      const addon =
-        participant.addon != '' && participant.addon != '0'
-          ? ` + ${participant.addon}`
-          : '';
+    const _data = [...data].reverse();
+    for (const participant of _data) {
+      const addon = participant.addon != 0 ? ` + ${participant.addon}` : '';
       participants.push(
         <p className="cq-confirmed-participant">
           {participant.name}
@@ -46,6 +39,7 @@ const ParticipationConfirmation = (props: Props) => {
         </p>
       );
     }
+
     return participants;
   };
 
@@ -54,19 +48,22 @@ const ParticipationConfirmation = (props: Props) => {
   const submitForm = async () => {
     setIsSending(true);
     const values = await form.validateFields();
-    const name = encodeURIComponent(values.name);
-    const addons: string = values.addons ?? '0';
-    const total = parseInt(addons) + 1;
+    const name = values.name;
+    const addons = values.addons ? parseInt(values.addons) : 0;
+    const total = addons + 1;
 
-    await fetch(
-      `https://docs.google.com/forms/d/e/${props.links.formId}/formResponse?usp=pp_url&entry.930157452=${name}&entry.1341605716=${addons}&entry.1501030110=${total}&submit=Submit`,
-      {
-        headers: {
-          'Content-Type': 'text/plain',
-        },
-        mode: 'no-cors',
-      }
-    ).then(() => {
+    const _participantData = data ? [...data] : [];
+    _participantData.push({
+      name: name,
+      addon: addons,
+      total: total,
+    });
+    const updateReqStatus = await updateData(
+      props.links.gistId,
+      props.links.fileName,
+      _participantData
+    );
+    if (updateReqStatus == 200) {
       Modal.success({
         centered: true,
         keyboard: true,
@@ -77,16 +74,27 @@ const ParticipationConfirmation = (props: Props) => {
           <span className="cq-success-modal-content">
             Cám ơn quý khách rất nhiều vì đã nhận lời tham dự tiệc cưới của vợ
             chồng chúng tôi! Sự hiện diện của quý khách là niềm vinh hạnh cho
-            gia đình chúng tôi. <br /> Dữ liệu sẽ được cập nhật hoàn chỉnh sau
-            30 phút.
+            gia đình chúng tôi.
           </span>
         ),
         title: 'Xác nhận thành công!',
       });
       form.resetFields();
       mutate();
-      setIsSending(false);
-    });
+    } else {
+      Modal.error({
+        centered: true,
+        keyboard: true,
+        maskClosable: true,
+        closable: true,
+        footer: [],
+        content: (
+          <span className="cq-success-modal-content">Đã xảy ra lỗi...</span>
+        ),
+        title: 'KHÔNG thành công!',
+      });
+    }
+    setIsSending(false);
   };
 
   const submitBtnClick = () => {
@@ -155,6 +163,7 @@ const ParticipationConfirmation = (props: Props) => {
 
   return (
     <>
+      <Blessing octokit={octokit} />
       <div id="confirmation" className="cq-section">
         <h1 className="section-title">Chung Vui</h1>
         <Divider />
@@ -171,7 +180,7 @@ const ParticipationConfirmation = (props: Props) => {
               {generateForm()}
               <h1 className="content-title">Khách mời đã xác nhận</h1>
               <div id="confirmed-participant">
-                {isLoading ? <Skeleton active /> : generateParticipants(data)}
+                {isLoading ? <Skeleton active /> : generateParticipants()}
               </div>
             </div>
           </div>

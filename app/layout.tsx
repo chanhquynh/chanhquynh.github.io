@@ -35,6 +35,11 @@ const handwriting = Dancing_Script({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NODE_ENV == 'production'
+      ? 'https://chanhquynh.github.io/'
+      : 'localhost:3000'
+  ),
   title: 'Quỳnh Anh & Minh Chánh',
   formatDetection: { telephone: false },
 };

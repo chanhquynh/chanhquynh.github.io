@@ -43,7 +43,7 @@ export default function Blessing({ octokit }: { octokit: Octokit }) {
     const _blessingData = data ? [...data] : [];
     _blessingData.push({
       name: values.name,
-      blessing: values.blessing,
+      blessing: values.blessingInput,
     });
 
     const updateReqStatus = await updateData(
@@ -120,7 +120,7 @@ export default function Blessing({ octokit }: { octokit: Octokit }) {
           <Item
             label="Lời chúc"
             required={true}
-            name="blessinginput"
+            name="blessingInput"
             className="cq-form-item cq-form-item__blessing"
             rules={[
               {

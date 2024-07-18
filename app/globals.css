@@ -50,6 +50,16 @@ scrollbar {
   @apply bg-cq-emphasize-400/30 hover:bg-cq-emphasize-700/50;
 }
 
+.cq-tooltip .ant-tooltip-inner {
+  @apply !bg-cq-emphasize-50 !text-cq-primary max-w-max;
+}
+.cq-tooltip .ant-tooltip-inner span {
+  @apply !text-base;
+}
+.cq-tooltip .ant-tooltip-arrow {
+  @apply before:!bg-cq-emphasize-50;
+}
+
 .cq-logo {
   @apply h-full flex flex-wrap items-stretch content-center
    pt-0.5 gap-1 text-cq-emphasize text-3xl;

@@ -1,7 +1,7 @@
 'use client';
 
 // import type { FormProps } from 'antd';
-import { Form, Input, InputNumber, Modal, Skeleton } from 'antd';
+import { Form, Input, InputNumber, Modal, Skeleton, Tooltip } from 'antd';
 import Item from 'antd/es/form/FormItem';
 import { Octokit } from 'octokit';
 import { useState } from 'react';
@@ -21,6 +21,10 @@ const octokit = new Octokit({
 const ParticipationConfirmation = (props: Props) => {
   const [isSending, setIsSending] = useState<boolean>(false);
   const { getData, updateData } = useOctokit(octokit);
+  const [participantFormData, setParticipantFormData] = useState<{
+    name: string;
+    addons: number;
+  }>({ name: '', addons: 0 });
 
   const { data, mutate, isLoading } = useSWR(props.links.fileName, () =>
     getData(props.links.gistId, props.links.fileName)
@@ -102,6 +106,23 @@ const ParticipationConfirmation = (props: Props) => {
     else console.log('Wait...');
   };
 
+  const generateAddonsTooltip = () => {
+    const _name =
+      participantFormData.name == ''
+        ? 'Tên hoặc Tên thường gọi'
+        : participantFormData.name;
+    const _addons =
+      participantFormData.addons == 0 ? '' : ` + ${participantFormData.addons}`;
+    return (
+      <span>
+        &quot;{_name + _addons}&quot;
+        <br />
+        Tổng số người:{' '}
+        <b className="text-red-500">{participantFormData.addons + 1}</b>
+      </span>
+    );
+  };
+
   const generateForm = () => {
     return (
       <>
@@ -128,6 +149,12 @@ const ParticipationConfirmation = (props: Props) => {
               className="cq-form-input"
               placeholder="Tên hoặc Tên thường gọi"
               style={{ width: '100%' }}
+              onChange={(e) =>
+                setParticipantFormData({
+                  name: e.target.value,
+                  addons: participantFormData.addons,
+                })
+              }
             />
           </Item>
           <Item
@@ -143,14 +170,28 @@ const ParticipationConfirmation = (props: Props) => {
             ]}
           >
             <div id="cq-confirmation-form--addons-submit">
-              <InputNumber
-                className="cq-form-input cq-form-input-number"
-                min={0}
-                max={5}
-                controls={false}
-                keyboard={false}
-                defaultValue={0}
-              />
+              <Tooltip
+                title={generateAddonsTooltip()}
+                trigger={'focus'}
+                fresh
+                overlayClassName="cq-tooltip"
+                placement="bottom"
+              >
+                <InputNumber
+                  className="cq-form-input cq-form-input-number"
+                  min={0}
+                  max={5}
+                  controls={false}
+                  keyboard={false}
+                  defaultValue={0}
+                  onChange={(value) =>
+                    setParticipantFormData({
+                      name: participantFormData.name,
+                      addons: value ?? 0,
+                    })
+                  }
+                />
+              </Tooltip>
               <a className="cq-btn cq-btn-primary" onClick={submitBtnClick}>
                 Xác nhận tham dự
               </a>

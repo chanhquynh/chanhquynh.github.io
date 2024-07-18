@@ -70,7 +70,7 @@ export default function Photos() {
               interval={5000}
               emulateTouch
               showThumbs
-              // autoPlay
+              autoPlay
               stopOnHover={false}
               renderThumbs={customRenderThumb}
               infiniteLoop
